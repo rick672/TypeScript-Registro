@@ -1,19 +1,16 @@
 <script setup lang="ts">
-import type { Persona } from "../interfaces/Persona";
+import store from "../store/store";
+import { ref, defineComponent } from "vue";
 
-// const personas: Persona[] = [
-//     {
-//         nombre: "Juan",
-//         apellido: "Perez",
-//         edad: 25,
-//         fechaNacimiento: "1990-01-01",
-//         telefono: "123456789",
-//         estado: true,
-//         crecer: () => {
-//             console.log("Juan crece");
-//         },
-//     },
-// ];
+const per = defineComponent({
+    name: "Persona",
+    setup() {
+        return {
+            store
+        }
+    }
+});
+
 </script>
 
 <template>
@@ -22,11 +19,15 @@ import type { Persona } from "../interfaces/Persona";
         <hr>
         <h2>Personas</h2>
         <p>Lista de personas</p>
-        <p>Nombre:</p>
-        <p>Apellido:</p>
-        <p>Edad:</p>
-        <p>Fecha de nacimiento:</p>
-        <p>Telefono:</p>
-        <p>Estado:</p>
+        <p>Nombre: {{ store.nombre }}</p>
+        <p>Apellido: {{ store.apellido }}</p>
+        <p>Edad: {{ store.edad }}</p>
+        <p>Fecha de nacimiento: {{ store.fechaNacimiento }}</p>
+        <p>Telefono: {{ store.telefono }}</p>
+        <p>Estado: {{ store.estado }}</p>
+        <button @click="store.crecer">Crecer</button>
+        <button @click="store.decrecer">Decrecer</button>
+        <button @click="store.state">Cambiar estado</button>
+
     </div>
 </template>

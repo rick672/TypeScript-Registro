@@ -7,4 +7,6 @@ export interface Store {
     estado: boolean;
 
     crecer?:()=>void;
+    decrecer?:()=>void;
+    state?:()=>void;
 }

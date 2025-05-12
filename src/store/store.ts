@@ -11,6 +11,12 @@ const store = reactive<Store>({
     crecer: () => {
         store.edad++;
     },
+    decrecer: () => {
+        store.edad--;
+    },
+    state: () => {
+        store.estado = !store.estado;
+    }
 });
 
 export default store;
